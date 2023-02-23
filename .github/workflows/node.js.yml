@@ -28,3 +28,5 @@ jobs:
         inputs: null
         SourceFolder: $(Build.SourcesDirectory)/build
         TargetFolder: $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        dsplayName: "Publish Artifact: drop"
