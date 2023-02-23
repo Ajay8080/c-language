@@ -28,4 +28,22 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run build 
+    
+    steps:
+      - task: CopyFiles@2
+        displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)/build'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    
+    
+    
+    
+    steps:
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: drop'
+
+    
+    
+    
    
