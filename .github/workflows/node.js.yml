@@ -23,10 +23,10 @@ jobs:
           cache: npm
       - run: npm install
       - run: npm run build
-      - task: CopyFiles@2
-        displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
-        inputs: null
-        SourceFolder: $(Build.SourcesDirectory)/build
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-      - task: PublishBuildArtifacts@1
-        dsplayName: "Publish Artifact: drop"
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            **/*.*
+            **/*.*
